@@ -1,0 +1,22 @@
+Project "Fast-Point-Feature Histograms" -- Summer Term 2015
+
+Summary of Milestone 1
+  1. (PASSED) K-d tree: initialization: 1 points
+  2. (PASSED) K-d tree: radius neighbor search: 2 points
+  3. (PASSED) Covariance matrix: 0.5 points
+  4. (PASSED) Normal computation: 1.5 points
+  5. (PASSED) Computation of features alpha, phi, theta: 2 points
+  6. (PASSED) SPFH derivation: 1 points
+  7. (PASSED) FPFH derivation: 2 points
+
+Summary of Milestone 2
+  8. (PASSED) SVM light inclusion: 1 points
+  9. (PASSED) Region Merging: 2 points
+ 
+  10. Documentation: 3 points
+  11. Optimization of rN and rH: 0 points
+ 
+Own contribution: 0 points
+
+
+Overall achieved points: 16.0 points

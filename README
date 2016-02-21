@@ -1,0 +1,71 @@
+# Framework for "Fast-Point-Feature Histograms"
+
+## Dependencies
+
+The code is tested under Ubuntu 12.04 and Ubuntu 14.04. It depends on the following packages:
+
+* cmake (>= 2.6)
+* libeigen (>= 3.0) 
+* libboost (>= 1.46) 
+
+The following command should install all needed dependencies:
+
+Ubuntu 12.04/14.04:
+  $ sudo apt-get install build-essential cmake libeigen3-dev libboost-all-dev
+  
+We tested this on Ubuntu 12.04.05 LTS and Ubuntu 14.04.02 LTS, but it should also work for versions in between.
+
+
+## Setup of your project and compilation
+
+In the following, we assume that your are already in the directory with your working copy of the directory.
+
+1. Execute the setup script "setup.sh", which creates the "build" directory:
+  $ sh setup.sh
+  
+  The script performs the following steps:
+  (a) Create a "build" directory, which is used to store the object files, etc.
+  (b) Calls "cmake .." from the "build" directory to generate the Makefile
+  (c) Calls "make" inside the build directory to compile the framework.
+  (d) Calls "./runtests" in the base directory of the framework.
+
+There should be a "data" folder containing the training and test data for this project and a "build" directory
+in your working copy. You should not commit the build folder to the repository, since it can be recreated with the 
+setup provided script. You only have to commit your changes to the source files and your final documentation.  
+All executables and temporary build files are only needed locally on your machine.
+  
+2. Execute "./runtests", which should run the provided tests:
+  $ ./runtests
+Due to the build up of the test cases, those for FPFH, SPFH and Features do not fail as long as the set of 
+neighbors is always empty. Only if your k-d tree radius neighbor search works, these test cases will 
+start failing! 
+  
+For grading purposes, we will use the same tests to check if you provided a working solution of the subtasks,
+but you will not get points for these tests by passing them using empty neighbor sets.
+
+
+## Notes on the provided framework
+
+Your code and implementation should go into the provided classes in the sub-folder "project". Your final
+solution should complete the methods with missing code. For some tasks, we provide "test cases", which 
+should pass if your code solves the subtask.
+
+Parameters can be entered using the command line (in eclipse right click on project -> Run Configuations -> 
+Arguments). Type -help to see a list of parameters and a description. 
+The standard parameters are provided at the beginning of the main method. 
+
+The training and test data is expected to be in the data folder. This folder includes a subdirectory "test", 
+containing all files currently used for testing, and a subdirectory "train", currently used for training the SVM.
+The subdirectory "histograms" contains the histogram feature files created for the test and training data. 
+For the post-processing import to work, you have to specify the subdirectories "model" and "predicition" to be 
+the output destinations for the svm-light model and predicition files. 
+The subdirectory "post_processed" contains the final label files, after performing region merging. 
+
+After compiling the code, you should find four executables in the root directory:
+
+1. "create-histograms" is used to create histograms for training and test data and label them as "berries" or "stem".
+2. "classify-histograms" is then used to learn a model using svm-light and classify the test histograms based on this model 
+into berries and stems.
+3. "post-processing" applies a region merging algorithm to the classified test set to provide a unique labeling to 
+connected regions.
+4. "evaluate-files" gives you the possibility to compute the final precision and recall values from the post-processed files.
