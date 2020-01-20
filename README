@@ -2,18 +2,19 @@
 
 ## Dependencies
 
-The code is tested under Ubuntu 12.04 and Ubuntu 14.04. It depends on the following packages:
+The code is tested under Ubuntu 12.04, Ubuntu 14.04, and Ubuntu 18.04. It depends on the following packages:
 
 * cmake (>= 2.6)
 * libeigen (>= 3.0) 
 * libboost (>= 1.46) 
+* libqt4-dev (>=4.8.7)
 
 The following command should install all needed dependencies:
 
-Ubuntu 12.04/14.04:
-  $ sudo apt-get install build-essential cmake libeigen3-dev libboost-all-dev
+Ubuntu 12.04/14.04/18.04:
+  $ sudo apt-get install build-essential cmake libeigen3-dev libboost-all-dev libqt4-dev
   
-We tested this on Ubuntu 12.04.05 LTS and Ubuntu 14.04.02 LTS, but it should also work for versions in between.
+We tested this on Ubuntu 12.04.05 LTS, Ubuntu 14.04.02 LTS, and Ubuntu 18.04.3 LTS, but it should also work for versions in between.
 
 
 ## Setup of your project and compilation
